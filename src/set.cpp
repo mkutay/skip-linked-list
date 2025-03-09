@@ -21,6 +21,7 @@ public:
   int level;
   int size;
   Node<T> *head;
+
   SkipListSet(int max_level, double prob) : MAX_LEVEL(max_level), PROB(prob) {
     level = size = 0;
     head = new Node<T>(T(), MAX_LEVEL);
