@@ -34,7 +34,9 @@ public class SkipListPQ<T> {
     public void push(T x) {
         Node<T> u = head;
         Node<T>[] update = (Node<T>[]) Array.newInstance(Node.class, maxLevel + 1);
+
         for (int i = level; i >= 0; i--) {
+            // Go through until the next value is not less than x
             while (u.next[i] != null && comp.compare(u.next[i].getVal(), x) < 0) {
                 u = u.next[i];
             }
@@ -45,6 +47,7 @@ public class SkipListPQ<T> {
 
         int h = randomLevel();
         if (h > level) {
+            // Extend the current level of the skip list
             for (int i = level + 1; i <= h; i++) {
                 update[i] = head;
             }
@@ -67,8 +70,9 @@ public class SkipListPQ<T> {
     public boolean pop() {
         if (size == 0) return false;
         for (int i = level; i >= 0; i--) {
-            // We only remove from the head;
+            // We only remove from the head:
             if (head.next[i] == null) continue;
+            
             head.next[i] = head.next[i].next[i];
             if (head.next[i] == null) {
                 // Skip list size has gone down

@@ -3,7 +3,8 @@ import java.lang.reflect.Array;
 public class Node<T> {
     private final T val;
     private final int h;
-    public Node<T>[] next;
+
+    public final Node<T>[] next;
 
     @SuppressWarnings("unchecked")
     public Node(T val, int h) {
@@ -13,5 +14,6 @@ public class Node<T> {
     }
 
     T getVal() { return val; }
+
     int getHeight() { return h; }
 }
