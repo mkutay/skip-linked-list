@@ -72,13 +72,14 @@ public class SkipListPQ<T> {
         for (int i = level; i >= 0; i--) {
             // We only remove from the head:
             if (head.next[i] == null) continue;
-            
+
             head.next[i] = head.next[i].next[i];
             if (head.next[i] == null) {
                 // Skip list size has gone down
                 level--;
             }
         }
+        size--;
         return true;
     }
 }

@@ -87,6 +87,7 @@ public:
                 }
             }
         }
+        size--;
         return true;
     }
 };
