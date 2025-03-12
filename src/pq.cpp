@@ -49,9 +49,6 @@ public:
             update[i] = u;
         }
 
-        u = u->next[0];
-        // We can contain duplicates
-
         int h = random_level();
         if (h > level) {
             // We need to increase the height of the skip list

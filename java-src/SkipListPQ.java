@@ -43,8 +43,6 @@ public class SkipListPQ<T> {
             update[i] = u;
         }
 
-        u = u.next[0];
-
         int h = randomLevel();
         if (h > level) {
             // Extend the current level of the skip list
